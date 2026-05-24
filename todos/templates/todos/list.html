@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代辦列表</title>
+    <style>
+        .todo-fidld {
+            background-color: #97b5b8;
+            border-radius: 12px;
+            color: rgb(7, 51, 208);
+            padding: 10px;
+            margin: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>代辦列表</h1>
+    {%for todo in todos %}
+    <div class="todo-fidld">
+        <small>{{todo.created}}</small>
+        <div class="title">{{todo.title}}</div>
+        {% if todo.content %}
+        <div class="content">{{todo.created}}</div>
+        {% endif %}
+        {% if todo.conplented %}
+        已完成
+        {% else %}
+        未完成
+        {% endif %}
+
+        {{todo.important}}
+
+        <a href="{% url 'todo-delete' todo.id %}">刪除</a>
+
+    </div>
+
+    {% endfor %}
+
+</body>
+
+</html>
