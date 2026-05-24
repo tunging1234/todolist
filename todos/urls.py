@@ -22,4 +22,5 @@ urlpatterns = [
 
     path("",views.todolist,name="todo-list"),
     path("delete/<int:id>",views.todo_delete,name="todo-delete"),
+    path("create",views.todo_create,name="todo-create"),
 ]

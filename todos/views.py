@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from .models import Todo
+from .forms import TodoForm
 # Create your views here.
 
 def todolist(request):
@@ -19,3 +20,6 @@ def todo_delete(request, id):
         print("刪除錯誤")
 
     return redirect("todo-list")
+
+def todo_create(request):
+    return render(request, "todos/create.html",{"form":TodoForm()})
