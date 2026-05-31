@@ -27,4 +27,9 @@
 
 - 部署前
     - pip freeze > requirements.txt
-    - pip freeze > requirements.txt
+    - pip install gunicorn
+
+- 安裝mysql
+    - pip install dotenv
+    - pip uninstall mysqlclient
+    - pip install pymysql
