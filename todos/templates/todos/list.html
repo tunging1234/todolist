@@ -1,44 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html'%}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>代辦列表</title>
-    <style>
-        .todo-fidld {
-            background-color: #97b5b8;
-            border-radius: 12px;
-            color: rgb(7, 51, 208);
-            padding: 10px;
-            margin: 12px;
-        }
-    </style>
-</head>
+{% block header%}
 
-<body>
-    <h1>代辦列表</h1>
-    {%for todo in todos %}
-    <div class="todo-fidld">
-        <small>{{todo.created}}</small>
-        <div class="title">{{todo.title}}</div>
-        {% if todo.content %}
-        <div class="content">{{todo.conplented}}</div>
-        {% endif %}
-        {% if todo.conplented %}
-        已完成
-        {% else %}
-        未完成
-        {% endif %}
 
-        {{todo.important}}
+<title>TodoList</title>
+<style>
+    }
+</style>
+{% endblock%}
+{% block content%}
 
-        <a href="{% url 'todo-delete' todo.id %}">刪除</a>
+<h1>代辦事項列表</h1>
+{% for todo in todos %}
+<div class="todo-field">
+    <small class="created">{{todo.created}}
 
-    </div>
+    </small>
+    {% if todo.important %}
+    <span class="important">重要</span>
+    {% endif %}
+    {% if todo.completed %}
+    <span class="completed">完成</span>
+    {% endif %}
+    <div class="title">{{todo.title}}</div>
+    {% if todo.content %}
+    <div class="content">{{todo.content|linebreaks}}</div>
+    {% endif %}
+    <a href="{% url 'todo-delete'  todo.id  %}" onclick="return confirm('是否確定刪除?!')">刪除</a>
+    <a href="{% url 'todo-update'  todo.id  %}">更新</a>
 
-    {% endfor %}
+</div>
 
-</body>
 
-</html>
+
+{% endfor %}
+{% endblock %}

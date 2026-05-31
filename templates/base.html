@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block header%}
+    {% endblock%}
+
+    <title>Document</title>
+    <style>
+        #navbar {
+            background-color: rgb(201, 244, 244);
+        }
+
+        .todo-field {
+            background-color: antiquewhite;
+            margin: 24px;
+            padding: 12px;
+            border-radius: 12px;
+            width: 400px;
+        }
+
+        .title {
+            margin-top: 12px;
+            font-size: 32px;
+        }
+
+        .created {
+            background-color: cadetblue;
+            color: white;
+            border-radius: 6px;
+            padding: 3px;
+        }
+
+        .content {
+            border-radius: 12px;
+            color: rgb(170, 94, 94);
+            padding: 12px;
+        }
+
+        .completed {
+            margin-left: 12px;
+            color: blue;
+        }
+
+        .important {
+            margin-left: 12px;
+            color: red;
+    </style>
+
+</head>
+
+<body>
+    <div id="navbar">
+        <a href="{% url 'todo-list' %}">首頁</a>
+        <a href="{%  url 'todo-create' %}">新增Todo</a>
+    </div>
+    {% block content %}
+
+    {% endblock %}
+
+</body>
+
+</html>
