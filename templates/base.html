@@ -4,8 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         * {
             box-sizing: border-box;
@@ -69,22 +67,16 @@
             background: #ddd;
         }
     </style>
-    {% block header%}
-    {% endblock%}
-
-
-
+    {% block head %}{% endblock %}
 </head>
 
 <body>
     <nav>
         <a href="{% url 'todo-list' %}">首頁</a>
-        <a href="{%  url 'todo-create' %}">新增Todo</a>
+        <a href="{% url 'todo-create' %}">新增 Todo</a>
     </nav>
-    {% block content %}
-
-    {% endblock %}
-
+    {% block content %}{% endblock %}
+    {% if message %}<p>{{ message }}</p>{% endif %}
 </body>
 
 </html>
